@@ -4,7 +4,8 @@ import ReactDOM from 'react-dom/client'
 import './index.css'
 import { Route, RouterProvider, createBrowserRouter, createRoutesFromElements } from 'react-router-dom'
 import Layout from './Layout.jsx'
-import App from './App.jsx'
+// import App from './App.jsx'
+import Home from './pages/Home/Home.jsx'
 
 
 
@@ -34,7 +35,7 @@ import App from './App.jsx'
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route   path='/' element={<Layout />}>
-      <Route path='' element={<App />} />
+      <Route path='' element={<Home />} />
       {/* <Route path='/contact' element={<Contact />} />
       <Route path='/help' element={<Quickhelp />} /> */}
     </Route>

@@ -5,7 +5,13 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        green: {
+          930: '#163809', // Define your custom green-950 color here
+        },
+      },
+    },
   },
   plugins: [],
 }

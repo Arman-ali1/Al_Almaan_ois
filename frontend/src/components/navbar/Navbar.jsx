@@ -15,7 +15,7 @@ function Navbar() {
       text: "introduction",
       url: "/",
       active: "handleintroduction",
-      style: "font-family: cursive;",
+      style: "font-family: cursive ;",
     },
     home: {
       text: "Home",
@@ -23,31 +23,73 @@ function Navbar() {
       active: "handleHome",
       style: "font-family: cursive;",
     },
-    StudentsCorner: {
-      text: "Students corner",
+    About: {
+      text: "About",
       url: "/",
       active: "handleStudentCorner",
     },
-    ExaminationCorner: {
-      text: "Examination corner",
+    Courses: {
+      text: "Courses",
       url: "/",
       active: "handleExaminationCorner",
     },
-    library: {
+    Library: {
       text: "library",
       url: "/",
       active: "handleInvester",
     },
-    contact: {
-      text: "Guest corner",
+    Contact: {
+      text: "Contact",
+      url: "/",
+      active: "handleContact",
+    },
+    Donate: {
+      text: "Donate",
+      url: "/",
+      active: "handleContact",
+    },
+    Login: {
+      text: "Login",
       url: "/",
       active: "handleContact",
     },
   };
+  // button style
+  const buttoncss = {
+    button :{
+        "--color": "#FFFFFF",
+        "font-size": "1.5em",
+        "padding": "0.3em .5em",
+        "font-weight": "650",
+        "fontFamily": "inherit",
+        "display": "inline-block",
+        // "lineHeight": "1.5em",
+        "overflow": "hidden",
+        "cursor": "pointer",
+        "zIndex": "1",
+        "color": "var(--color)",
+        // "border": "2px solid var(--color)",
+        "borderRadius": "6px",
+        "position": "relative",
+        // "hover":background-color: #FFFFFF
+      },
+      list:{
+        listStyle:"none"
+      }
+  } 
+  //navbar css 
+  // const navcss={
+  //   navbar :{
+  //     "display": "grid",
+  //     "grid-template-columns": "repeat(7, minmax(110px, 1fr))", /* Auto-fit with min 100px, making items responsive */
+  //     "justify-items": "center", /* Center each item horizontally */
+  //     "gap": "24px" /* Optional: Adjust space between items */
+  //   }
+  // }
 
   return (
-    <header className="bg-black z-50  border-b-2 shadow-xl w-[100%] m-auto shadow-slate-200">
-      <div className="bg-slate-800 p-1">
+    <header className="bg-green-930 ">
+      <div className="bg-green-800">
         <h2 className="text-white sm:text-base text-xs sm:font-bold  text-center font-serif">
           Get real-time assistance with your queries. Try{" "}
           <span className="text-blue-600 ">
@@ -58,163 +100,57 @@ function Navbar() {
           now!
         </h2>
       </div>
-
-      <div className="sm:text-2xl  xl:text-3xl min-h-[50px]    grid w-[100%] sm:grid-cols-12 grid-cols-2 gap-2 text-black  ">
-        <div className=" sm:col-span-3 col-span-1 sm:pt-[25px] sm:pl-16 sm:pb-2 text-center pt-2 pl-3">
-          <Link to="/">
-            {/* <h2 className=" text-white   sm:font-bold font-semibold">
-              Trinity{" "}
-              <span className="text-black rounded-sm pl-1 pr-1  bg-white">
-                InfoTech
-              </span>
-            </h2> */}
-            <img src={logois} alt="logo" className="sm:w-[100px] sm:h-[50px] rounded-2xl w-[60px] h-[35px]  "/>
-          </Link>
-        </div>
-
-        {/* nav menu hamburger */}
-        <div className=" pt-[2px] sm:hidden font-extrabold text-lg   sm:pt-[30px]  flex items-end  flex-col ">
-        <div className=" absolute ">
-        <div className="  col-span-1 sm:pt-[30px] w-[45px] ">
-          {
-          image?<img className="" onClick={()=>{setMobMenu(!mobMenu)
-          setImage(!image)
-          }} src={Image}></img>:<img src={Image1} onClick={()=>{setMobMenu(!mobMenu)
-          setImage(!image)
-          }} ></img>
-          }
-        </div>
-        {
-          mobMenu?<div className="text-slate-100 grid grid-rows-5 bg-transparent border border-slate-700 backdrop-blur-md   p-10 rounded-md mt-2 gap-y-10 transition duration-1000  ease-linear" onClick={()=>{setMobMenu(!mobMenu)
-          setImage(!image)
-          }}>
-            <div className=" hover:text-blue-500 cursor-pointer ">
-              <Link to="/">
-                <h2>{navItem.home.text}</h2>
-              </Link>
-            </div>
-            <div className=" hover:text-blue-500 cursor-pointer">
-              <button
-                onClick={() => {
-                  navigate("/");
-                  setTimeout(() => {
-                    const element = document.getElementById("about");
-                    if (element) {
-                      element.scrollIntoView({ behavior: "smooth" });
-                    }
-                  }, 1000);
-                }}
-              >
-                {navItem.introduction.text}
-              </button>
-            </div>
-            <div className=" hover:text-blue-500 cursor-pointer">
-              <button
-                onClick={() => {
-                  navigate("/");
-                  setTimeout(() => {
-                    const element = document.getElementById("services");
-                    if (element) {
-                      element.scrollIntoView({ behavior: "smooth" });
-                    }
-                  }, 1000);
-                }}
-              >
-                {navItem.StudentsCorner.text}
-              </button>
-            </div>
-            <div className=" hover:text-blue-500 cursor-pointer">
-              <button
-                onClick={() => {
-                  navigate("/");
-                  setTimeout(() => {
-                    const element = document.getElementById("clients");
-                    if (element) {
-                      element.scrollIntoView({ behavior: "smooth" });
-                    }
-                  }, 1000);
-                }}
-              >
-                {navItem.ExaminationCorner.text}
-              </button>
-            </div>
-            <div className=" hover:text-blue-500 cursor-pointer">
-              <Link to="/contact">
-                <h2>{navItem.contact.text}</h2>
-              </Link>
-            </div>
-          </div>:""
-        }
-        </div>          
-        </div>
-
-        {/* nav menu hamburger end*/}
-        <div className="sm:text-xl  sm:col-span-6  text-center rounded-md hidden sm:block sm:pt-[30px] ">
-        
-          <div className="grid sm:gap-x-[90px] xl:gap-x-4 sm:grid-cols-5">
-          
-            <div className="text-white hover:text-blue-500 cursor-pointer ">
-              <Link to="/">
-                <h2>{navItem.home.text}</h2>
-              </Link>
-            </div>
-            <div className="text-white hover:text-blue-500 cursor-pointer hover:border-b-4 hover:border-blue-500">
-              <Link to="/">
-                <h2>{navItem.introduction.text}</h2>
-              </Link>
-            </div>
-            <div className="text-white hover:text-blue-500 cursor-pointer hover:border-b-4 hover:border-blue-500">
-              <button
-                onClick={() => {
-                  navigate("/");
-                  setTimeout(() => {
-                    const element = document.getElementById("about");
-                    if (element) {
-                      element.scrollIntoView({ behavior: "smooth" });
-                    }
-                  }, 1000);
-                }}
-              >
-                {navItem.StudentsCorner.text}
-              </button>
-            </div>
-            <div className="text-white hover:text-blue-500 cursor-pointer hover:border-b-4 hover:border-blue-500">
-              <button
-                onClick={() => {
-                  navigate("/");
-                  setTimeout(() => {
-                    const element = document.getElementById("services");
-                    if (element) {
-                      element.scrollIntoView({ behavior: "smooth" });
-                    }
-                  }, 1000);
-                }}
-              >
-                {navItem.ExaminationCorner.text}
-              </button>
-            </div>
-            <div className="text-white hover:text-blue-500 cursor-pointer hover:border-b-4 hover:border-blue-500">
-              <Link to="/contact">
-                <h2>{navItem.contact.text}</h2>
-              </Link>
-            </div>
-          </div>
-        </div>
-
-        <div className=" xl:block  sm:col-span-3 md:sm:text-xl sm:text-xs sm:min-w-[200px] sm:max-w-[300px] hidden sm:hidden sm:m-[10px] border bg-white sm:h-[70px] p-1 ml-1 mr-1  text-center rounded-full ">
-          <div className="text-black  font-bold   flex items-center justify-around sm:pt-6 md:pt-4 ">
-            <Link to="/help">
-              <h2>
-                +91-XXXX{" "}
-                <span className=" bg-black  p-[18px]  text-white rounded-full hover:text-black hover:bg-white transition delay-100 ease-in-out">
-                  {" "}
-                  GetIn Touch
+      <div className='grid grid-cols-3 gap-4 bg-green p-4 text-white' >
+        <div className="col-span-1">
+          <Link  to="/">
+              {/* <h2 className=" text-white   sm:font-bold font-semibold">
+                Trinity{" "}
+                <span className="text-black rounded-sm pl-1 pr-1  bg-white">
+                  InfoTech
                 </span>
-              </h2>
+              </h2> */}
+              <img src={logois} alt="logo" className=" rounded-full h-[60px]"/>
             </Link>
+        </div>
+        <div className=" col-span-2 space-x-6 " > 
+          <div style={buttoncss.button} className=" bg-white  cursor-pointer " >
+              <Link to="/">
+                <h2 className="text-green-930   ">{navItem.home.text}</h2>
+              </Link>
           </div>
+          <div style={buttoncss.button} className=" hover:bg-white  cursor-pointer hover:text-green-930" >
+              <Link to="/" className="hover:text-green-930" >
+                <h2 >{navItem.About.text}</h2>
+              </Link>
+          </div>
+          <div className=" cursor-pointer hover:bg-white" style={buttoncss.button}>
+              <Link to="/" className="hover:text-green-930" >
+                <h2>{navItem.Courses.text}</h2>
+              </Link>
+          </div>
+          <div className=" cursor-pointer hover:bg-white" style={buttoncss.button}>
+              <Link to="/" className="hover:text-green-930" >
+                <h2>{navItem.Library.text}</h2>
+              </Link>
+          </div>
+          <div className=" cursor-pointer hover:bg-white" style={buttoncss.button}>
+              <Link to="/" className="hover:text-green-930" >
+                <h2>{navItem.Contact.text}</h2>
+              </Link>
+          </div>
+          <div className=" cursor-pointer hover:bg-white border-gray-100 border-2" style={buttoncss.button}>
+              <Link to="/" className="hover:text-green-930" >
+                <h2>{navItem.Donate.text}</h2>
+              </Link>
+          </div>
+          <div className=" cursor-pointer hover:bg-white  border-gray-100 border-2 " style={buttoncss.button}>
+              <Link to="/" className="hover:text-green-930 " >
+                <h2>{navItem.Login.text}</h2>
+              </Link>
+          </div>     
         </div>
       </div>
+      
     </header>
   );
 }

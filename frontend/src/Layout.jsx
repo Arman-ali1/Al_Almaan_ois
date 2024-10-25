@@ -9,7 +9,6 @@ function Layout() {
     return (
         <div>
         <Navbar/>
-        <h1>Al_AmaanOis + Technical Skills</h1>
         <Outlet className="absolute"/>
         <h1>This is footer-----------------------</h1>
         </div>
